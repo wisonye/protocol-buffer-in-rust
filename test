@@ -1,0 +1,47 @@
+
+syntax = "proto3";
+
+message Lbs {
+    uint32 mcc = 1;
+    uint32 mnc = 2;
+    uint32 cell_id = 3;
+    uint32 lac = 4;
+    optional uint32 radioType = 5;
+    optional uint32 signal_strength_in_csq = 6;
+    optional uint32 signal_strength_in_dbm = 7;
+}
+
+message GpsLocation {
+    string alarm = 1;
+    string status = 2;
+    bool is_precise = 3;
+    string lat = 4;
+    string lon = 5;
+    uint32 altitude = 6;
+    float speed = 7;
+    uint32 direction = 8;
+    string gps_time = 9;
+    string recv_time = 10;
+    optional uint32 lbs_network_type = 11;
+    optional Lbs lbs = 12;
+}
+
+message DeviceResponse {
+    string protocol_type = 1;
+    string response_type = 2;
+    string response_type_bytes_str = 3;
+    string device_id = 4;
+    string msg_seq_no = 5;
+    optional string command_id = 6;
+    optional uint32 command_msg_seq_no = 7;
+    optional string command_execute_result = 8;
+    optional string iccid = 9;
+    optional string protocol_version = 10;
+
+    optional string upgrade_type = 11;
+    optional string upgrade_result = 12;
+    optional GpsLocation gps_location = 13;
+    optional repeated string extra_info_desc_list = 14;
+    optional string text_content = 15;
+    optional string binary_protocol = 16;
+}

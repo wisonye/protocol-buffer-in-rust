@@ -1,0 +1,8 @@
+/target
+**/*.rs.bk
+Cargo.lock
+
+# stuff that should not really be here anyway, but I'm lazy, so I added some c# parts to this project
+# ./protoc --csharp_out="csharp"  ./protocol/proto_defs/*.proto
+protoc
+/csharp
