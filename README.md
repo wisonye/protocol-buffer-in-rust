@@ -38,14 +38,13 @@ That means the serialize data **Does Not** include the attribute name at all, th
 
 
 ```
+# This will generate the all the rust source from `protocol/proto_defs` into `protocol/src` folder.
 cargo build
-cp /Volumes/NiftyDrive/GitHub/proto-verb-data/samples/*.dat target/debug/
-cd ./target/debug
-./proto-verb-data
 ```
 
-### Output 
+After that, the same file name (but end with `.rs`) source file will be generated into `protocol/src` folder.
+Then you can use them in the `main.rs`. Basically, just create a new instance from the struct and call the
+`set_xxxx` method to fill the struct (all those methods is generated automatic).
 
-> "ababillarse (first-person singular present me ababillo, first-person singular preterite me ababillé, past participle ababillado)"
+Finally, call the `write_to_bytes` to get back the `Result<Vec<u8>>`, that's it.
 
-[https://github.com/ian-hamlin/verb-data]: https://github.com/ian-hamlin/verb-data
